@@ -20,7 +20,14 @@
             } nav {
                 text-align: center;
                 margin-top: 20px;
-            } nav a {
+            } nav ul {
+                display: none;
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                list-style: none;
+            } nav ul li a {
                 color: black;
                 text-decoration: none;
                 width: 110px;
@@ -31,7 +38,7 @@
                 transition: transform 0.2s ease,
                             color 0.2s ease,
                             letter-spacing 0.2s ease;
-            } nav a:hover {
+            } nav ul li a:hover {
                 cursor: pointer;
                 color: #CC5500;
                 transform: scale(1.15);
@@ -99,18 +106,50 @@
             } .footer-right a:hover {
                 color: #CC5500;
             }
+
+            /* ------------------------------ */
+            /*         MOBILE LAYOUT          */
+            /* ------------------------------ */
+            .menu-icon {
+                display: none;
+                font-size: 2rem;
+                cursor: pointer;
+                user-select: none;
+            } #menu-toggle {
+                display: none;
+            } header #menu-toggle:checked ~ ul {
+                transform: scale(1, 1);
+            }
+
+            @media only screen and (max-width: 768px) {
+                .menu-icon {
+                    display: block;
+                } nav ul {
+                    display: none;
+                    flex-direction: column;
+                    padding: 1rem;
+                    gap: 1rem;
+                } #menu-toggle:checked + .menu-icon + nav ul {
+                    display: flex;
+                }
+            }
         </style>
     </head>
 
     <body>
         <header>
+            <input type = 'checkbox' id = 'menu-toggle'>
+            <label for = 'menu-toggle' class = 'menu-icon' style = 'font-size: 24px;'><i class = 'fa-solid fa-bars'></i></label>
             <nav>
-                <a href = 'index.html'>Home</a>
-                <a href = 'team.html'>Our Team</a>
-                <a href = 'events.html'>Events</a>
-                <a href = 'gallery.html'>Gallery</a>
-                <a href = 'sponsors.html'>Sponsors</a>
-                <a href = 'contact.html'>Contact</a>
+                <ul class = 'menu'>
+                    <li><a href = 'index.html'>Home</a></li>
+                    <li><a href = 'team.html'>Our Team</a></li>
+                    <li><a href = 'events.html'>Events</a></li>
+                    <li><a href = 'gallery.html'>Gallery</a></li>
+                    <li><a href = 'sponsors.html'>Sponsors</a></li>
+                    <li><a href = 'contact.html'>Contact</a></li>
+                </ul>
+                
             </nav>
             <h1 style = 'font-size: 72px; font-weight: 700; text-align: center;'>Centurion Robotics 22689</h1>
         </header>
@@ -178,4 +217,3 @@
         </footer>
     </body>
 </html>
-
