@@ -99,58 +99,11 @@
             } .footer-right a:hover {
                 color: #CC5500;
             }
-
-            /* ------------------------------ */
-            /* RESPONSIVE LAYOUT (MOBILE)     */
-            /* ------------------------------ */
-            #menu-toggle {
-                display: none;
-            } header #menu-toggle:checked ~ ul {
-                transform: scale(1, 1);
-            }
-
-            @media only screen and (max-width: 700px) {
-                header {
-                    padding: 25px 20px;
-                } nav a {
-                    display: block;
-                    margin: 10px 0;
-                    font-size: 20px;
-                } h1 {
-                    font-size: 48px !important;
-                } main {
-                    padding: 20px 25px;
-                } .about-section {
-                    flex-direction: column;
-                    text-align: center;
-                    gap: 20px;
-                } .about-section img {
-                    width: 90%;
-                    max-width: 350px;
-                } .section-divider {
-                    margin: 0 -25px;
-                    height: 40px;
-                } .FTC1-section, .FTC2-section {
-                    padding: 20px 0;
-                } footer {
-                    flex-direction: column;
-                    text-align: center;
-                    padding: 20px;
-                    gap: 10px;
-                } .footer-left img {
-                    width: 80px;
-                } .footer-right a {
-                    text-align: center;
-                    font-size: 14px;
-                }
-            }
         </style>
     </head>
 
     <body>
         <header>
-            <input type = 'checkbox' id = 'menu-toggle'>
-            <label for = 'menu-toggle' style = 'font-size: 24px;'><i class = 'fa-solid fa-bars'></i></label>
             <nav>
                 <a href = 'index.html'>Home</a>
                 <a href = 'team.html'>Our Team</a>
@@ -225,3 +178,4 @@
         </footer>
     </body>
 </html>
+
