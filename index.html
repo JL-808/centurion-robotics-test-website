@@ -103,7 +103,13 @@
             /* ------------------------------ */
             /* RESPONSIVE LAYOUT (MOBILE)     */
             /* ------------------------------ */
-            @media screen and (max-width: 768px) {
+            #menu-toggle {
+                display: none;
+            } header #menu-toggle:checked ~ ul {
+                transform: scale(1, 1);
+            }
+
+            @media only screen and (max-width: 700px) {
                 header {
                     padding: 25px 20px;
                 } nav a {
@@ -143,6 +149,8 @@
 
     <body>
         <header>
+            <input type = 'checkbox' id = 'menu-toggle'>
+            <label for = 'menu-toggle' style = 'font-size: 24px;'><i class = 'fa-solid fa-bars'></i></label>
             <nav>
                 <a href = 'index.html'>Home</a>
                 <a href = 'team.html'>Our Team</a>
