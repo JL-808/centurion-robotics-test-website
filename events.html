@@ -16,11 +16,20 @@
             } header {
                 background-color: #F9BB17;
                 color: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 padding: 40px 50px 40px 50px;
             } nav {
-                text-align: center;
                 margin-top: 20px;
-            } nav a {
+            } nav ul {
+                display: none;
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                list-style: none;
+            } nav ul li a {
                 color: black;
                 text-decoration: none;
                 width: 110px;
@@ -31,7 +40,7 @@
                 transition: transform 0.2s ease,
                             color 0.2s ease,
                             letter-spacing 0.2s ease;
-            } nav a:hover {
+            } nav ul li a:hover {
                 cursor: pointer;
                 color: #CC5500;
                 transform: scale(1.15);
@@ -42,8 +51,8 @@
                 padding: 40px 80px 40px 80px;
             } hr {
                 border: none;
+                background-color: #F9BB17;
                 height: 3px;
-                background-color: ghostwhite;
                 margin: 0px 0;
             } footer {
                 background-color: black;
@@ -63,7 +72,9 @@
             } .footer-left img {
                 width: 100px;
                 padding: 0px 12px 10px 12px;
-            } .footer-right a {
+            } .footer-left h3 {
+                display: none;
+            }.footer-right a {
                 text-align: right;
                 font-size: 15px;
                 font-weight: 300;
@@ -76,41 +87,82 @@
                 color: #CC5500;
             }
 
- /*           .about-section {
-                display: flex;
-                align-items: center;
-                gap: 40px;
-                padding-bottom: 72px;
-            } .about-section img {
-                width: 500px;
-                align-items: center;
-            } .section-divider {
-                height: 60px;
-                background: repeating-linear-gradient(
-                    135deg,
-                    #F9BB17 0px 10px,
-                    black 10px 20px
-                );
-                margin: 0 -80px;
-            } .FTC1-section {
-                padding-top: 40px;
-                padding-bottom: 40px;
-            } .FTC2-section {
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }*/
+            /* ------------------------------ */
+            /*         MOBILE LAYOUT          */
+            /* ------------------------------ */
+            .menu-icon {
+                display: none;
+                cursor: pointer;
+                user-select: none;
+                position: fixed;
+            } #menu-toggle {
+                display: none;
+            } header #menu-toggle:checked ~ ul {
+                transform: scale(1, 1);
+            }
+
+            @media only screen and (max-width: 768px) {
+                header {
+                    align-items: flex-start;
+                } .menu-icon {
+                    display: block;
+                } nav ul {
+                    position: fixed;
+                    top: 80px;
+                    left: 10px;
+                    width: 34%;
+                    background-color: #D3D3D3;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 1rem;
+                    gap: 1rem;
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    transition: max-height 0.45s ease,
+                                opacity 0.3s ease,
+                                transform 0.45s ease;
+                } #menu-toggle:checked + .menu-icon + nav ul {
+                    max-height: 500px;
+                    opacity: 1;
+                    transform: translateY(0);
+                }  footer > div {
+                    flex-direction: column;
+                    text-align: left;
+                    align-items: center;
+                } .footer-left {
+                    justify-content: center;
+                    flex-direction: row-reverse;
+                } .footer-left h3 {
+                    display: block;
+                    text-align: right;
+                } .footer-left p {
+                    display: none;
+                } .footer-right {
+                    justify-content: center;
+                    flex-direction: row;
+                    gap: 5px;
+                } .footer-right span {
+                    display: none;
+                }
+            }
         </style>
     </head>
 
     <body>
         <header>
+            <input type = 'checkbox' id = 'menu-toggle'>
+            <label for = 'menu-toggle' class = 'menu-icon' style = 'font-size: 24px; text-align: left;'><i class = 'fa-solid fa-bars'></i></label>
             <nav>
-                <a href = 'index.html'>Home</a>
-                <a href = 'team.html'>Our Team</a>
-                <a href = 'events.html'>Events</a>
-                <a href = 'gallery.html'>Gallery</a>
-                <a href = 'sponsors.html'>Sponsors</a>
-                <a href = 'contact.html'>Contact</a>
+                <ul class = 'menu'>
+                    <li><a href = 'index.html'>Home</a></li>
+                    <li><a href = 'team.html'>Our Team</a></li>
+                    <li><a href = 'events.html'>Events</a></li>
+                    <li><a href = 'gallery.html'>Gallery</a></li>
+                    <li><a href = 'sponsors.html'>Sponsors</a></li>
+                    <li><a href = 'contact.html'>Contact</a></li>
+                </ul>
             </nav>
         </header>
 
@@ -164,6 +216,7 @@
         <footer>
             <div class = 'footer-left'>
                 <img src = 'images\logo.png'>
+                <h3 style = 'font-size: 22px; font-weight: 500;'>Centurion Robotics 22689</h3>
                 <p style = 'font-size: 12px; font-weight: 200;'>© 2026 Centurion Robotics</p>
             </div>
             <div class = 'footer-right'>
@@ -171,7 +224,7 @@
                 <a href = 'https://youtube.com/@centurionrobotics'><i class = 'fa-brands fa-youtube'></i><span> @centurionrobotics</span></a>
                 <a href = 'https://instagram.com/ftc_22689/'><i class = 'fa-brands fa-instagram'></i><span> @ftc_22689</span></a>
                 <a href = 'https://github.com/Centurion-Robotics'><i class = 'fa-brands fa-github'></i><span> Centurion-Robotics</span></a>
-                <a href = 'https://www.google.com/maps/place/Fort+Richmond/@49.7911343,-97.1530842,18z/data=!4m6!3m5!1s0x52c1df66937ed22f:0x70d1e65e24b8a3f4!8m2!3d49.7912828!4d-97.1527827!16s%2Fm%2F026sbvv?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoASAFQAw%3D%3D'><i class = 'fa-solid fa-location-dot'></i> 99 Killarney Ave, Winnipeg, MB R3T 3B3</a>
+                <a href = 'https://www.google.com/maps/place/Fort+Richmond/@49.7911343,-97.1530842,18z/data=!4m6!3m5!1s0x52c1df66937ed22f:0x70d1e65e24b8a3f4!8m2!3d49.7912828!4d-97.1527827!16s%2Fm%2F026sbvv?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoASAFQAw%3D%3D'><i class = 'fa-solid fa-location-dot'></i><span> 99 Killarney Ave, Winnipeg, MB R3T 3B3</span></a>
             </div>
         </footer>
     </body>
