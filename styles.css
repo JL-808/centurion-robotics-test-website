@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
-html, body {
+html {
+    overflow-x: visible;
+    position: static;
+} body {
     overflow-x: hidden;
     box-sizing: border-box;
     position: relative;
