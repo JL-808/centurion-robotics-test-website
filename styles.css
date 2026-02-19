@@ -85,7 +85,8 @@ body {
         #F9BB17 0px 10px,
         black 10px 20px
     );
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 -80px;
 } .footer-left {
     display: flex;
